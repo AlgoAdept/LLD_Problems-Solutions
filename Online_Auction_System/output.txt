@@ -1,0 +1,149 @@
+PS C:\Users\Admin\Desktop\Online_Auction_System> python main.py
+Welcome to the simple auction system.
+
+Auction System Menu:
+1. Register user
+2. Create auction
+3. Place bid
+4. Close auction
+5. Show auctions
+6. Exit
+
+Choose an option: 1
+Enter user name: Sakshi
+Enter user email: sakshipatil9247@gmail.com
+User registered: Sakshi
+
+Auction System Menu:
+1. Register user
+2. Create auction
+3. Place bid
+4. Close auction
+5. Show auctions
+6. Exit
+
+Choose an option: 1
+Enter user name: Sneha
+Enter user email: abc@gmail.com
+User registered: Sneha
+
+Auction System Menu:
+1. Register user
+2. Create auction
+3. Place bid
+4. Close auction
+5. Show auctions
+6. Exit
+
+Choose an option: 1
+Enter user name: Harry
+Enter user email: xyz@gmail.com
+User registered: Harry
+
+Auction System Menu:
+1. Register user
+2. Create auction
+3. Place bid
+4. Close auction
+5. Show auctions
+6. Exit
+
+Choose an option: 2
+Registered users:
+1. Sakshi (sakshipatil9247@gmail.com)
+2. Sneha (abc@gmail.com)
+3. Harry (xyz@gmail.com)
+Enter user number: 1
+Enter item title: Rolex wrist watch 
+Enter starting price: 1000000
+Enter item description: It's a vintage edition...
+Auction created: Rolex wrist watch
+Starting price: ₹1000000
+Seller: Sakshi
+
+Auction System Menu:
+1. Register user
+2. Create auction
+3. Place bid
+4. Close auction
+5. Show auctions
+6. Exit
+
+Choose an option: 3
+Registered users:
+1. Sakshi (sakshipatil9247@gmail.com)
+2. Sneha (abc@gmail.com)
+3. Harry (xyz@gmail.com)
+Enter user number: 2
+Active auctions:
+1. Rolex wrist watch - current price ₹1000000 (seller: Sakshi)
+Enter auction number: 1
+Enter bid amount: 1500000
+Sneha bid ₹1500000
+
+Auction System Menu:
+1. Register user
+2. Create auction
+3. Place bid
+4. Close auction
+5. Show auctions
+6. Exit
+
+Choose an option: 3
+Registered users:
+1. Sakshi (sakshipatil9247@gmail.com)
+2. Sneha (abc@gmail.com)
+3. Harry (xyz@gmail.com)
+Enter user number: 3
+Active auctions:
+1. Rolex wrist watch - current price ₹1500000 (seller: Sakshi)
+Enter auction number: 1
+Enter bid amount: 1600000
+Harry bid ₹1600000
+
+Auction System Menu:
+1. Register user
+2. Create auction
+3. Place bid
+4. Close auction
+5. Show auctions
+6. Exit
+
+Choose an option: 3
+Registered users:
+1. Sakshi (sakshipatil9247@gmail.com)
+2. Sneha (abc@gmail.com)
+3. Harry (xyz@gmail.com)
+Enter user number: 2
+Active auctions:
+1. Rolex wrist watch - current price ₹1600000 (seller: Sakshi)
+Enter auction number: 1
+Enter bid amount: 2000000
+Sneha bid ₹2000000
+
+Auction System Menu:
+1. Register user
+2. Create auction
+3. Place bid
+4. Close auction
+5. Show auctions
+6. Exit
+
+Choose an option: 4
+Active auctions:
+1. Rolex wrist watch - current price ₹2000000 (seller: Sakshi)
+Enter auction number: 1
+Auction closed
+Winner: Sneha
+Winning Bid: ₹2000000
+
+Auction System Menu:
+1. Register user
+2. Create auction
+3. Place bid
+4. Close auction
+5. Show auctions
+6. Exit
+
+Choose an option: 6
+Exiting auction system.

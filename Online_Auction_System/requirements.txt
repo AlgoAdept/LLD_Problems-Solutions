@@ -1,0 +1,88 @@
+Online Auction System 
+
+Functional Requirements 
+
+    Register
+    Create auction
+    View auction
+    Place bid
+    Close auction
+    Declare winner
+
+Non Functional Requirements 
+
+    Scalability
+    Consistency
+    Maintainability
+    Performance
+
+Business Rules
+
+    1. Bid must be greater than current highest bid
+    2. Seller cannot bid on own auction
+    3. Auction should be active
+    4. Closed auction should reject bids
+    5. Winner = highest bidder
+
+Object Oriented Programming applied 
+
+    classes included
+
+        User -> Represents seller/buyer. (Encapsulates user details and actions)
+        AuctionItem -> Stores item details for auction. (Single responsibility for item information)
+        Auction -> Main business logic. (Encapsulation and Composition becoz Acution Has Bids)
+        Bid -> Represents a bid placed by a user on an auction. (Abstraction used to represent a bid without exposing internal details)
+        AuctionSystem -> System Manager (To avoid putting everything in one class, we can have a separate class to manage users and auctions, Promotes Separation of Concerns)
+
+Design Principle Thinking 
+
+    SRP -> each class has a single responsibility (e.g., User manages user details, Auction manages auction logic, Bid manages bid details)
+        User
+        Auction
+        Bid
+    
+    OCP -> Auction system can later support different types of auctions (e.g., Normal auction, Reverse auction, Dutch auction) without modifying existing code, by using inheritance or interfaces.
+
+    LSP -> if later PremiumUser(User) is introduced, it should be able to replace User without affecting the auction systems functionality.
+
+    ISP -> Not needed in this context as we dont have interfaces, but if we had different types of users (e.g., Buyer, Seller), we could have separate interfaces for their specific actions.
+
+    DIP -> Instead of hardcoding de pendencies, we can use dependency injection for better flexibility and testability. For example, Auction can depend on an interface for bid validation rather than a concrete implementation.
+
+Simple Class diagram with attributes and methods 
+
+    User
+    ├── name
+    └── email
+
+    AuctionItem
+    ├── title
+    └── base_price
+
+    Bid
+    ├── bidder
+    └── amount
+
+    Auction
+    ├── seller
+    ├── item
+    ├── bids[]
+    ├── place_bid()
+    ├── close_auction()
+    └── get_winner()
+
+    AuctionSystem
+    ├── users[]
+    ├── auctions[]
+    └── register_user()
+
+Impplementation in Python 
+
+    auction_system/
+
+        main.py
+        user.py
+        auction.py
+        bid.py
+        auction_item.py
+        auction_system.py
