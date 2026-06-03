@@ -1,4 +1,5 @@
-import User
+from models.user import User
+
 
 class Bid:
     def __init__(self, bidder: User, amount: int):

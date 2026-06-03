@@ -1,6 +1,7 @@
-import AuctionItem
-from Bid import Bid
-import User
+from models.auction_item import AuctionItem
+from models.bid import Bid
+from models.user import User
+from exceptions.exceptions import AuctionClosedError, InvalidBidError
 
 
 class Auction:
@@ -19,17 +20,17 @@ class Auction:
         )
 
     def place_bid(self, bid: Bid):
-        """Accept a higher bid and update the highest bidder."""
         if self.closed:
-            return False
-        if bid.amount > self.current_price:
-            self.current_price = bid.amount
-            self.highest_bidder = bid.bidder
-            return True
-        return False
+            raise AuctionClosedError("Cannot place a bid on a closed auction.")
+        if bid.amount <= self.current_price:
+            raise InvalidBidError(
+                f"Bid amount must be greater than current price ({self.current_price})."
+            )
+        self.current_price = bid.amount
+        self.highest_bidder = bid.bidder
+        return True
 
     def close_auction(self):
-        """Mark auction closed and return a closure summary."""
         self.closed = True
         return "Auction closed"
 

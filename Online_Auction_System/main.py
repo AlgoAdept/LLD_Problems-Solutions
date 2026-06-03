@@ -1,8 +1,9 @@
-import Auction
-from AuctionSystem import AuctionSystem
-from Bid import Bid
+from models.auction import Auction
+from models.bid import Bid
+from services.auction_system import AuctionSystem
+from exceptions import AuctionClosedError, InvalidBidError
 
-MENU = (
+MENU = ( 
     "\nAuction System Menu:\n"
     "1. Register user\n"
     "2. Create auction\n"
@@ -13,7 +14,7 @@ MENU = (
 )
 
 
-def choose_user(system: AuctionSystem):
+def choose_user(system: AuctionSystem): # Helper function to select a user from the registered users
     if not system.users:
         print("No users registered yet.")
         return None
@@ -31,7 +32,7 @@ def choose_user(system: AuctionSystem):
     return None
 
 
-def choose_auction(system: AuctionSystem):
+def choose_auction(system: AuctionSystem): # Helper function to select an active auction from the list of auctions
     active_auctions = system.get_active_auctions()
     if not active_auctions:
         print("No active auctions available.")
@@ -53,13 +54,12 @@ def choose_auction(system: AuctionSystem):
     return None
 
 
-def print_auction_details(auction: Auction):
+def print_auction_details(auction: Auction): # Helper function to print the details of an auction
     print(f"Auction created: {auction.item.title}")
     print(f"Starting price: ₹{auction.starting_price}")
     print(f"Seller: {auction.seller.name}")
 
-
-if __name__ == "__main__":
+if __name__ == "__main__": # Entry point for the auction system
     system = AuctionSystem()
     print("Welcome to the simple auction system.")
 
@@ -101,10 +101,13 @@ if __name__ == "__main__":
                 print("Please enter a numeric bid amount.")
                 continue
             bid = Bid(bidder=bidder, amount=int(bid_text))
-            if auction.place_bid(bid):
+            try:
+                auction.place_bid(bid)
                 print(f"{bidder.name} bid ₹{bid.amount}")
-            else:
+            except InvalidBidError:
                 print(f"Bid must be higher than current price ₹{auction.current_price}.")
+            except AuctionClosedError:
+                print("This auction has already been closed.")
 
         elif choice == "4":
             auction = choose_auction(system)
